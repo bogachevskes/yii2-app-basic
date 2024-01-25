@@ -17,7 +17,7 @@ COPY ./docker/php/php.ini-production $PHP_INI_DIR/php.ini
 
 COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/local/bin/
 
-RUN pear update-channels && pecl update-channels && install-php-extensions @composer-2 \
+RUN install-php-extensions @composer-2 \
     bcmath mcrypt pdo_mysql gd intl opcache \
     && apk --no-cache add bash
 
