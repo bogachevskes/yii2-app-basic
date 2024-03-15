@@ -26,6 +26,7 @@ APP_WEB_PORT=8077
 
 1. Скопировать **.env.dist** в **.env** и актуализировать все параметры
 1. Выполнить скрипт установки проекта
+> В среде Windows скрипт запускать при помощи Git bash
 ```sh
 docker-compose -p calculator down --remove-orphans && \
 docker build --target=common-tools \
