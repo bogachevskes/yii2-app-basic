@@ -21,6 +21,8 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        $this->layout = 'blanc';
+
         return $this->render('index');
     }
 }
