@@ -4,6 +4,7 @@ $params = require __DIR__ . '/params.php';
 
 return [
     'id' => 'basic',
+    'name' => 'Калькулятор',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'aliases' => [
