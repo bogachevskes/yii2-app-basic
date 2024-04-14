@@ -7,18 +7,18 @@ install:
 	@$(MAKE) -s composer-install
 
 up:
-	@docker-compose -p calculator up -d
+	@docker compose -p calculator up -d
 
 down:
-	@docker-compose -p calculator down --remove-orphans
+	@docker compose -p calculator down --remove-orphans
 
 ps:
-	@docker-compose -p calculator ps
+	@docker compose -p calculator ps
 
 restart: down up
 
 logs:
-	@docker-compose -p calculator logs -f
+	@docker compose -p calculator logs -f
 
 docker-build: \
 	docker-build-php-fpm \
@@ -40,4 +40,4 @@ docker-build-nginx:
 	-t localhost/calculator-nginx:latest -f ./docker/Dockerfile .
 
 composer-install:
-	@docker-compose -p calculator run --rm php-fpm composer install --no-cache
+	@docker compose -p calculator run --rm php-fpm composer install --no-cache

@@ -12,7 +12,6 @@
 
 * WSL / Linux
 * docker 1.10.0+
-* docker-compose 1.6.0+
 * Make
 
 ### Переменные окружения
@@ -22,13 +21,13 @@
 APP_WEB_PORT=8077
 ```
 
-## Установка с использованием docker-compose
+## Установка с использованием docker compose
 
 1. Скопировать **.env.dist** в **.env** и актуализировать все параметры
 1. Выполнить скрипт установки проекта
 > В среде Windows скрипт запускать при помощи Git bash
 ```sh
-docker-compose -p calculator down --remove-orphans && \
+docker compose -p calculator down --remove-orphans && \
 docker build --target=common-tools \
 	-t localhost/calculator-common-tools:latest -f ./docker/Dockerfile . && \
 docker build --target=fpm \
@@ -37,39 +36,39 @@ docker build --target=fpm \
 	-t localhost/calculator-php-fpm:latest -f ./docker/Dockerfile . && \
 docker build --target=nginx \
 	-t localhost/calculator-nginx:latest -f ./docker/Dockerfile . && \
-docker-compose -p calculator up -d && \
-docker-compose -p calculator run --rm php-fpm composer install --no-cache
+docker compose -p calculator up -d && \
+docker compose -p calculator run --rm php-fpm composer install --no-cache
 ```
 
 ### Служебное
 
 - запуск контейнеров
     ```sh
-    docker-compose -p calculator up -d
+    docker compose -p calculator up -d
     ```
 - остановка контейнеров
     ```sh
-    docker-compose -p calculator down --remove-orphans
+    docker compose -p calculator down --remove-orphans
     ```
 - перезапустить контейнеры
     ```sh
-    docker-compose -p calculator down --remove-orphans && docker-compose -p calculator up -d
+    docker compose -p calculator down --remove-orphans && docker compose -p calculator up -d
     ```
 - логи контейнеров
     ```sh
-    docker-compose -p calculator logs -f
+    docker compose -p calculator logs -f
     ```
 - статус контейнеров
     ```sh
-    docker-compose -p calculator ps
+    docker compose -p calculator ps
     ```
 - установка php-зависимостей из регистра зависимостей composer.json
     ```sh
-    docker-compose -p calculator run --rm php-fpm composer install --no-cache
+    docker compose -p calculator run --rm php-fpm composer install --no-cache
     ```
 - установка php-зависимости
     ```sh
-    docker-compose -p calculator run --rm php-fpm composer require <имя_пакета>
+    docker compose -p calculator run --rm php-fpm composer require <имя_пакета>
     ```
 
 ## Установка с использованием утилиты Make
