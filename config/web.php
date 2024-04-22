@@ -3,7 +3,7 @@
 $params = require __DIR__ . '/params.php';
 
 return [
-    'id' => 'basic',
+    'id' => 'calculator-yii2',
     'name' => 'Калькулятор',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
@@ -25,7 +25,7 @@ return [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
                 [
-                    'class' => 'yii\log\FileTarget',
+                    'class' => \yii\log\FileTarget::class,
                     'levels' => ['error', 'warning'],
                 ],
             ],
