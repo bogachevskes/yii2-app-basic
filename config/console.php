@@ -1,10 +1,9 @@
 <?php
 
 $params = require __DIR__ . '/params.php';
-$db = require __DIR__ . '/db.php';
 
 return [
-    'id' => 'basic-console',
+    'id' => 'calculator-yii2-console',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'app\commands',
@@ -14,12 +13,12 @@ return [
     ],
     'components' => [
         'cache' => [
-            'class' => 'yii\caching\FileCache',
+            'class' => \yii\caching\FileCache::class,
         ],
         'log' => [
             'targets' => [
                 [
-                    'class' => yii\log\FileTarget::class,
+                    'class' => \yii\log\FileTarget::class,
                     'levels' => ['error', 'warning'],
                 ],
             ],
