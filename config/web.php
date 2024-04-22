@@ -16,7 +16,7 @@ return [
             'cookieValidationKey' => 'sF6ugQqWMYrNL4Q',
         ],
         'cache' => [
-            'class' => yii\caching\FileCache::class,
+            'class' => \yii\caching\FileCache::class,
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
